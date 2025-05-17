@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The World of Tomorrow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      overflow-x: hidden;
+    }
+
+    /* Falling leaves */
+    .leaf {
+      position: fixed;
+      width: 40px;
+      animation: fall linear infinite;
+      z-index: 99;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Cover Page */
+    .cover {
+      height: 100vh;
+      background: linear-gradient(to right, #56ab2f, #a8e063);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .cover-text {
+      z-index: 2;
+    }
+
+    .title {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5rem;
+      animation: slideIn 2s ease forwards;
+    }
+
+    .author {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    .story {
+      padding: 50px 20px;
+    }
+
+    .paragraph {
+      margin: 50px auto;
+      max-width: 900px;
+      font-size: 1.3rem;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .story-img {
+      width: 60%;
+      max-height: 300px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .story-img.left {
+      align-self: flex-start;
+    }
+
+    .story-img.right {
+      align-self: flex-end;
+    }
+
+    .story-img.center {
+      align-self: center;
+    }
+
+    @keyframes slideIn {
+      from {transform: translateY(-100px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .paragraph.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_56e679d5f6.mp3?filename=forest-nature-sounds-ambient-123006.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Falling leaves -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const leaf = document.createElement('img');
+      leaf.src = "https://i.ibb.co/8LgKJkCk/369-3698817-single-green-leaf-png.png";
+      leaf.classList.add('leaf');
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
+      leaf.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(leaf);
+    }
+  </script>
+
+  <!-- Cover Page -->
+  <section class="cover">
+    <img src="https://i.ibb.co.com/PsWxrfCZ" alt="" class="cover-img">
+    <div class="cover-text">
+      <h1 class="title">The World of Tomorrow</h1>
+      <p class="author">By Aronno Bhattacharjee</p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story">
+    <div class="paragraph animate">
+      <img src="https://i.ibb.co.com/vCTYMhyF/download-1.jpg" class="story-img right">
+      <p>
+        The world was suffocating. Skies were thick with smog, rivers clogged with plastic, and forests were burning to ash. Kids struggled with lung problems, clutching inhalers as they played. Fish floated lifeless in toxified waters, their vibrant colors dulled by pollution. The planet was crying out to be saved.
+      </p>
+    </div>
+
+    <div class="paragraph animate">
+      <img src="https://i.ibb.co.com/ZzGvpSQn/download-2.jpg" class="story-img left">
+      <p>
+        But three friends refused to give up. They launched Project Rebirth, a daring mission to bring the planet back to health. They built a carbon-capturing tower powered by solar power. It pulled carbon dioxide out of the air, slowing global warming.
+      </p>
+    </div>
+
+    <div class="paragraph animate">
+      <img src="https://i.ibb.co.com/cKwdFC3p/download-3.jpg" class="story-img center">
+      <p>
+        They invented machines that cleaned oceans and rivers, pulling out tons of plastic and poison. They encouraged people all over the world to plant trees, creating lush green spaces where concrete had ruled.
+      </p>
+    </div>
+
+    <div class="paragraph animate">
+      <img src="https://i.ibb.co.com/4nHYqCJX/download-4.jpg" class="story-img right">
+      <p>
+        "Ban plastics," they shouted, introducing green alternatives that harmed nature no more. "Go renewable—solar, wind, and hydro. End fossil fuels." Their message ignited. People mobilized, governments listened, and change began.
+      </p>
+    </div>
+
+    <div class="paragraph animate">
+      <p>
+        Years passed, and the skies turned blue, rivers shone, and forests grew. Children played without inhalers, and fish swam in clear waters. The Earth was healing, and humanity had a second chance.
+      </p>
+    </div>
+
+    <div class="paragraph animate">
+      <p>
+        This story is a warning. If we don't stop polluting, the destiny will be disastrous—death, illness, and a barren Earth. But if we unite together, then we can create a World of Tomorrow with no pollution, no greenhouse effect, and no suffering. A world that will make Earth a heaven for generations to come.
+      </p>
+    </div>
+
+    <div class="paragraph animate">
+      <p>
+        The heroes in this story showed the way. Let us emulate them. The time for action is now. Together, we can build a World of Tomorrow where life thrives, and the Earth is cherished. The future is in our hands.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    const elements = document.querySelectorAll('.animate');
+    elements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
